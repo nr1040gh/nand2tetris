@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Or.hdl
+/**
+ * Or gate:
+ * out = (((a == 1) || (b == 1))), 1, 0) 
+ */
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    //// Replace this comment with your code.
+    Nand(a=a, b=b, out=nandout1);
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    And(a=nota, b=notb, out=andout1);
+    Nand(a=nandout1, b=andout1, out=out);
+}
